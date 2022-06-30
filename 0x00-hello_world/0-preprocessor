@@ -1,2 +1,2 @@
 #!/bin/bash
- runs a C file through the preprocessor 
+ gcc -E -o c 
