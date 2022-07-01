@@ -4,10 +4,10 @@
 #include <stdio.h>
 /* betty style doc for function main goes there */
 /**
- * main - entry block
- * @void: no argument
- * Return: 0 (Sucess)
- **/ 
+* main - entry block
+* @void: no argument
+* Return: 0 (Sucess)
+**/ 
 int main(void)
 {
 int n;
