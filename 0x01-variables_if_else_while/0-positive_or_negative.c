@@ -3,7 +3,7 @@
 /* more headers goes there */
 #include <stdio.h>
 /* betty style doc for function main goes there */
- /**
+ /*
  * main-Entry point
  * @void-no arrangement 
  * Return:Always 0 (Success)
