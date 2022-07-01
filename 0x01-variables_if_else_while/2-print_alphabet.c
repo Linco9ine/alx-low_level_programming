@@ -5,6 +5,7 @@
  */
 int main(void)
 {
+ int a,b,n;
 char alpha = a;
 while (alpha <= z)
 {
