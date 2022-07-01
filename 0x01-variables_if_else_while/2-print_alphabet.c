@@ -5,9 +5,8 @@
  */
 int main(void)
 {
- int a,b,n;
-char alpha = a;
-while (alpha <= z)
+char alpha =a;
+while (alpha <=z)
 {
 putchar(alpha);
 alpha++;
