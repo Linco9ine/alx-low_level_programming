@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 
 /**
@@ -19,6 +20,6 @@ while (i <= 'f')
 putchar(i);
 i++;
 } 
-putchar('\n');
+ putchar('\n');
 return (0);
 }
