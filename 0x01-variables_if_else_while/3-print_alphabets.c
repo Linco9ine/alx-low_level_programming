@@ -14,12 +14,13 @@ int main(void)
 		putchar(ch);
 	}
 {
- char ch;
- for (ch = 'A'; ch <='Z'; ch++)
+char ch;
+for (ch = 'A'; ch <= 'Z'; ch++)
 {
- putchar(ch);
+putchar(ch);
 }
 putchar('\n');
 	return (0);
 }
+
 }
