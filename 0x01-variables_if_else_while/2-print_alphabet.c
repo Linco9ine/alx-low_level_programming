@@ -11,7 +11,6 @@ a = 97;
 z = 122;
 n = 110;
     char ch = a;
-
 while (ch <= z)
 {
 putchar(ch);
