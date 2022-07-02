@@ -5,11 +5,10 @@
 * Return: Always 0 (Success)
 */
 int main(void)
-{   
-int a,z,n;
-a = 97; 
-z = 122;
-n = 110;
+{ 
+int a = 97; 
+int z = 122;
+int n = 110;
     char ch = a;
 while (ch <= z)
 {
