@@ -3,27 +3,36 @@
 #include <stdio.h>
 
 /**
- * main - Prints a text according number
+ * main - Prints the numbers from 0-9.
  *
  * Return: Always (Success)
  */
 int main(void)
 {
-int n, lastd;
-srand(time(0));
-n = rand() - RAND_MAX / 2;
-lastd = n % 10;
-if (lastd > 5)
+int i = '0';
+int j = '0';
+while (i <= '9')
+{	
+while (j <= '9')
 {
-printf("Last digit of %d is %d and is greater than 5\n", n, lastd);
+putchar(i);
+putchar(j);
+if (j == '9' && i == '9')
+{
+putchar('\n');
 }
-else if (lastd == 0)
+else
 {
-printf("Last digit of %d is %d and is 0\n", n, lastd);
+putchar(',');
+putchar(' ');
 }
-else if (lastd < 6 && lastd != 0)
+j++;
+}
+if (j >= '9')
 {
-printf("Last digit of %d is %d and is less than 6 and not 0\n", n, lastd);
+j = '0';
+}
+i++;
 }
 return (0);
 }
