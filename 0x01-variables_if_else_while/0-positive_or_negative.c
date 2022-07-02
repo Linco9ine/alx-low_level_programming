@@ -1,8 +1,6 @@
-#include <stdlib.h>
-#include <time.h>
-/* more headers goes there */
 #include <stdio.h>
-/* betty style doc for function main goes there */
+#include <time.h>
+#include <stdlib.h>
 /**
  * main - entry block
  * @void: no argument
@@ -11,11 +9,10 @@
 int main(void)
 {
 int n;
- int l;
+int l;
 
 srand(time(0));
 n = rand() - RAND_MAX / 2;
-/* your code goes there */
 l = n % 10;
 
 if (l > 5)
