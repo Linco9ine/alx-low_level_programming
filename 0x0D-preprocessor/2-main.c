@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 /**
- *main -main entry
- *Description: Program that prints the name of the file
+ * main -main entry
+ * Description: Program that prints the name of the file
  * it was compiled from
- *Return: void
- **/
+ * Return: 0
+ */
 int main(void)
 {
 	_putchar("%s\n", __FILE__);
