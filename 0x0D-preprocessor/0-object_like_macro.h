@@ -1,4 +1,1 @@
-#define SIZE 102
-
-
-#endif
+#define SIZE 1024
