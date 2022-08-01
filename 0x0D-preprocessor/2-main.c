@@ -1,14 +1,15 @@
-#ifndef MAIN_H
-#define MAIN_H
+#include <stdio.h>
 
-#define 2-main.c 2-main.c
-
-int main()
+/**
+ * main - prints the name of the file of the program was compiled from, followed by a new line.
+ *
+ * Return: always 0.
+ */
+int main(void)
 {
-	printf(2-main.c\n);
-	return(0);
-#endif
+	printf("%s\n", __FILE__);
 
+	return(0);
 }
 
 
