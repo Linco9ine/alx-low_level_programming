@@ -1,47 +1,36 @@
-#include <stdio.h>
-#include <stdlib.h>
-
+#include "3-calc.h"
 /**
- * main - Prints the opcodes of itself.
- * @argc: The number of arguments supplied to the program.
- * @argv: An array of pointers to the arguments.
- *
- * Return: Always 0.
- */
+ * main - Entry point
+ * @argc: the number of the parameters
+ * @argv: the parameters in the case the number to be calculated.
+(* a blank line
+* Description: this program is the enttry point for a calculator)?
+(* section header: 3-calc.h)*
+* Return: 0 in success
+*/
 int main(int argc, char *argv[])
 {
-	int bytes, index;
-	int (*address)(int, char **) = main;
-	unsigned char opcode;
+	int n1, n2, result;
+	int (*p)(int, int);
 
-	if (argc != 2)
+	if (argc < 4 || argc > 4)
 	{
 		printf("Error\n");
-		exit(1);
+		exit(98);
 	}
 
-	bytes = atoi(argv[1]);
+	n1 = atoi(argv[1]);
+	n2 = atoi(argv[3]);
 
-	if (bytes < 0)
+	p = get_op_func(argv[2]);
+
+	if (p == NULL)
 	{
 		printf("Error\n");
-		exit(2);
+		exit(99);
 	}
+	result = p(n1, n2);
 
-	for (index = 0; index < bytes; index++)
-	{
-		opcode = *(unsigned char *)address;
-		printf("%.2x", opcode);
-
-		if (index == bytes - 1)
-			continue;
-		printf(" ");
-
-		address++;
-	}
-
-	printf("\n");
-
+	printf("%d\n", result);
 	return (0);
 }
-
