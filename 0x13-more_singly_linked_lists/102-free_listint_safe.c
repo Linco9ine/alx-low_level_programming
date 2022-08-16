@@ -1,53 +1,76 @@
-#include <stdlib.h>
 #include "lists.h"
 
 /**
- * free_listint_safe - Free a list that may or may not loop,
- * set start of list to NULL
- * @h: Pointer to pointer to the start of the list
- * Return: Size of the list that has been freed
+ * detect_loop - Function that detects if is a loop
+ * @h: Head of the linked list
+ * Return: Number of length if is true or 0 if is false
+ */
+int detect_loop(listint_t *h)
+{
+	listint_t *slow, *fast;
+	int i;
+
+	slow = h, fast = h;
+
+	for (i = 1; slow && fast && fast->next; i++)
+	{
+		slow = slow->next, fast = fast->next->next;
+
+		if (slow == fast)
+			return (i);
+	}
+
+	return (0);
+}
+
+/**
+ * remove_loop - Function that removes loop in a linked list
+ * @h: Header of the linked list
+ * @n: lenth of the loop
+ */
+void remove_loop(listint_t **h, int n)
+{
+	listint_t *ptr1, *ptr2;
+
+	ptr1 = *h, ptr2 = *h;
+
+	for (; n > 0; n--)
+		ptr1 = ptr1->next;
+
+	while (1)
+	{
+		ptr1 = ptr1->next, ptr2 = ptr2->next;
+
+		if (ptr1->next == ptr2->next)
+		{
+			ptr1->next = NULL;
+			return;
+		}
+	}
+}
+
+/**
+ * free_listint_safe - Function that frees a linked list
+ * @h: Head of the linked list
+ * Return: The size of the list that was free
  */
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *killnode;
-	listint_t *current;
-	listadd_t *headadd;
-	listadd_t *checker;
-	size_t count;
+	listint_t *t;
+	int n;
 
-	count = 0;
-	current = *h;
-	headadd = NULL;
-	if (h != NULL)
-	{
-		while (current != NULL)
-		{
-			checker = headadd;
-			while (checker != NULL)
-			{
-				if (current == checker->address)
-				{
-					free(current);
-					free_listadd(headadd);
-					/*headadd = NULL;*/
-					 *h = NULL;
-					return (count);
-				}
-				checker = checker->next;
-			}
-			killnode = current;
-			if (add_nodeaddress(&headadd, current) == NULL)
-			{
-				free_listadd(headadd);
-				exit(98);
-			}
-			current = current->next;
-			free(killnode);
-			count++;
-		}
-		free_listadd(headadd);
-		/*headadd = NULL;*/
-		*h = NULL;
-	}
-	return (count);
+	if (h == NULL || *h == NULL)
+		printf("0\n(nil)\n"), exit(98);
+
+	n = detect_loop(*h);
+
+	if (n != 0)
+		remove_loop(h, n);
+
+	for (n = 0; *h; n++)
+		t = *h, *h = (*h)->next, free(t);
+
+	*h = NULL;
+
+	return (n);
 }
